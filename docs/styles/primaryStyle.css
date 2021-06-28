@@ -1,13 +1,120 @@
 /* index style */
-body{
+body {
     background-color: hsla(0, 0%, 14%, 1);
     color: hsla(62, 100%, 67%, 0.65);
 }
 
+/* grid layout */
+
 .parent { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
-    grid-template-rows: repeat(4, 1fr); 
+    /* grid-auto-rows: minmax(100px, auto); */
+    grid-template-rows: repeat(3, 1fr); 
     grid-column-gap: 1px;
     grid-row-gap: 1px; 
+    grid-template-areas: 
+        "hd hd hd hd"
+        "sh1 sh2 sh3 sh4"
+        "ft . . ."
+}
+
+.identification {
+    grid-area: hd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.showcase1 {
+    grid-area: sh1;
+    overflow: hidden;
+}
+
+.showcase2 {
+    grid-area: sh2;
+    overflow: hidden;
+}
+
+.showcase3 {
+    grid-area: sh3;
+    overflow: hidden;
+}
+
+.showcase4 {
+    grid-area: sh4;
+    overflow: hidden;
+}
+
+.footer {
+    grid-area: ft;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 10px;
+    display: inline-block;
+}
+
+/* text styles */
+
+.criterion {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    /* color: hsla(360, 100%, 100%, 1); */
+    color: hsla(335, 87%, 50%, 1);
+    -webkit-text-stroke: .04em hsla(0, 0%, 0%, 1);
+    display: inline-block;
+    transform: scale(1,.75);
+    transform-origin: left center;
+}
+
+/* text animations */
+
+p.showcase {
+    background-color:hsla(360, 100%, 100%, 1);
+    color:hsla(0, 0%, 14%, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
     }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+/* shapes */
+
+.submenu-flex {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.submneu-flex > div {
+    margin: 5px;
+    padding: 5px;
+}
+
+#placeholder {
+    border-radius: 5px;
+    background-color: hsla(335, 87%, 50%, 1);
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+    opacity: 0.5;
+    transition: 1s ease;
+}
+
+#placeholder:hover {
+    opacity: 1;
+    transition: 1s ease;
+}
